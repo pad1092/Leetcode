@@ -1,10 +1,11 @@
 import easy.P169MajorityElement;
 import easy.P645SetMismatch;
+import greedy.P11ContainerWithMostWater;
 
 public class main {
     public static void main (String[] args){
-        int[] nums = {8,7,3,5,3,6,1,4};
-        System.out.println("Result: "  + P645SetMismatch.findErrorsNumber(nums)[0] + ", " + P645SetMismatch.findErrorsNumber(nums)[1] );
-        System.out.println(P169MajorityElement.majorityElement(nums));
+        int[] nums = {2,3,4,5,18,17,6};
+//        int[] nums = {1,2,4,3};
+        System.out.println("Result: "  + P11ContainerWithMostWater.maxArea(nums ));
     }
 }
