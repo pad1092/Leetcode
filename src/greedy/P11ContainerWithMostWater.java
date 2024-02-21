@@ -2,18 +2,20 @@ package greedy;
 
 public class P11ContainerWithMostWater {
     public static int maxArea(int[] height) {
-        int startIndex = 0;
-        int endIndex = 1;
+        int left = 0;
+        int right = height.length - 1;
         int maxArea = 0;
-        for (int i=1; i<height.length; i++){
-            int currArea = (i - startIndex) * Math.min(height[startIndex], height[i]);
-            if (currArea > maxArea){
-                maxArea = currArea;
+        while (left < right){
+            int currentArea = Math.min(height[left], height[right]) * (right-left);
+            maxArea = Math.max(maxArea, currentArea);
+            if (height[left] < height[right]){
+                left += 1;
+            }
+            else {
+                right -= 1;
             }
         }
+        return maxArea;
 
-
-        System.out.println("Index: " + startIndex + " - " + endIndex);
-        return (maxArea);
     }
 }
