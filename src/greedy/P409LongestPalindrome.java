@@ -33,22 +33,19 @@ public class P409LongestPalindrome {
     }
     public static int longestPalindromeV2(String s) {
         int[] count = new int[128];
-        int[] hasAdd = new int[128];
         int res = 0;
         for (int i=0; i<s.length(); i++){
             int character = s.charAt(i);
             count[character] += 1;
-
-            int cntOfChar = count[character];
-            if (hasAdd[character] == 1){
-                res += cntOfChar - cntOfChar % 2;
-            }
-            else {
-                res += cntOfChar - cntOfChar % 2;
-                hasAdd[character] = 1;
-            }
-
         }
+        boolean hasOdd = false;
+        for (int cnt : count){
+            res += cnt - cnt%2;
+            if (cnt%2 == 1){
+                hasOdd = true;
+            }
+        }
+        res = hasOdd ? res + 1 : res;
         return res;
     }
 }
